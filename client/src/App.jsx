@@ -2,6 +2,7 @@ import Wallet from "./Wallet";
 import Transfer from "./Transfer";
 import "./App.scss";
 import { useState } from "react";
+import { CheckWallet } from "./CheckWallet";
 
 function App() {
   const [balance, setBalance] = useState(0);
@@ -9,18 +10,29 @@ function App() {
   const [privateKey, setPrivateKey] = useState("");
 
   return (
-    <div className="app">
-      <Wallet
-        balance={balance}
-        setBalance={setBalance}
-        address={address}
-        setAddress={setAddress}
-        privateKey={privateKey}
-        setPrivateKey={setPrivateKey}
-      />
-      <Transfer setBalance={setBalance} address={address} privateKey={privateKey} />
+    <main>
+      <div className="app">
+        <Wallet
+          balance={balance}
+          setBalance={setBalance}
+          address={address}
+          setAddress={setAddress}
+          privateKey={privateKey}
+          setPrivateKey={setPrivateKey}
+        />
+        <Transfer setBalance={setBalance} address={address} privateKey={privateKey} />
+{/*   
+        <CheckWallet 
+          balance={balance}
+          setBalance={setBalance}
+          address={address}
+          setAddress={setAddress}
+          privateKey={privateKey}
+          setPrivateKey={setPrivateKey}
+          /> */}
 
-      <div>
+      </div>
+      <div className="Table">
         <table>
           <thead>
             <tr>
@@ -102,7 +114,8 @@ function App() {
 
 
       </div>
-    </div>
+
+    </main>
   );
 }
 
